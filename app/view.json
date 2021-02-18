@@ -1,0 +1,164 @@
+{
+  "node::track_parcel": {
+    "common.position": {
+      "x": 600,
+      "y": 23
+    }
+  },
+  "node::missed_delivery": {
+    "common.position": {
+      "x": 600,
+      "y": 169
+    }
+  },
+  "node::where_is_point": {
+    "common.position": {
+      "x": 600,
+      "y": 315
+    }
+  },
+  "node::return_shipment": {
+    "common.position": {
+      "x": 600,
+      "y": 461
+    }
+  },
+  "node::root": {
+    "common.position": {
+      "x": 0,
+      "y": 2957
+    }
+  },
+  "node::schedule_haircut": {
+    "common.position": {
+      "x": 0,
+      "y": 23
+    }
+  },
+  "node::cancel_appt": {
+    "common.position": {
+      "x": 0,
+      "y": 169
+    }
+  },
+  "node::answering_machine": {
+    "common.position": {
+      "x": 0,
+      "y": 315
+    }
+  },
+  "node::i_will_call_back": {
+    "common.position": {
+      "x": 0,
+      "y": 461
+    }
+  },
+  "node::can_hear_you": {
+    "common.position": {
+      "x": 0,
+      "y": 607
+    }
+  },
+  "node::dont_understand_hangup_params": {
+    "common.position": {
+      "x": 0,
+      "y": 753
+    }
+  },
+  "node::dont_understand": {
+    "common.position": {
+      "x": 0,
+      "y": 919
+    }
+  },
+  "node::dont_understand_preprocessor": {
+    "common.position": {
+      "x": 0,
+      "y": 1085
+    }
+  },
+  "node::hello": {
+    "common.position": {
+      "x": 0,
+      "y": 1251
+    }
+  },
+  "node::hello_preprocessor": {
+    "common.position": {
+      "x": 0,
+      "y": 1417
+    }
+  },
+  "node::i_am_robot": {
+    "common.position": {
+      "x": 0,
+      "y": 1563
+    }
+  },
+  "node::repeat_preprocessor": {
+    "common.position": {
+      "x": 0,
+      "y": 1709
+    }
+  },
+  "node::repeat_hangup_params": {
+    "common.position": {
+      "x": 0,
+      "y": 1855
+    }
+  },
+  "node::repeat": {
+    "common.position": {
+      "x": 0,
+      "y": 2021
+    }
+  },
+  "node::ping": {
+    "common.position": {
+      "x": 0,
+      "y": 2207
+    }
+  },
+  "node::wait": {
+    "common.position": {
+      "x": 0,
+      "y": 2373
+    }
+  },
+  "node::sorry_wont_call": {
+    "common.position": {
+      "x": 0,
+      "y": 2519
+    }
+  },
+  "node::swear_words": {
+    "common.position": {
+      "x": 0,
+      "y": 2665
+    }
+  },
+  "node::hangup": {
+    "common.position": {
+      "x": 0,
+      "y": 2811
+    }
+  },
+  "node::dont_understand_hangup": {
+    "common.position": {
+      "x": 600,
+      "y": 919
+    }
+  },
+  "node::hello_hangup": {
+    "common.position": {
+      "x": 600,
+      "y": 1251
+    }
+  },
+  "node::repeat_or_ping_hangup": {
+    "common.position": {
+      "x": 600,
+      "y": 2114
+    }
+  }
+}
