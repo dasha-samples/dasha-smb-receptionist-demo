@@ -1,17 +1,26 @@
 import DashaSdk, * as dasha from "@dasha.ai/platform-sdk";
 
 import { createJob } from "./createJob";
-import { createLogger, recordToUrl, runConsoleChat } from "./helpers";
+import { 
+  createLogger, 
+  recordToUrl, 
+  runConsoleChat, 
+  removeUpdateIntentsFile, 
+  updateCustomIntents, 
+} from "./helpers";
+import * as lib from "./lib"
 
 async function main() {
+  const appPath = "./app";
   const sdk = new DashaSdk({
     url: "app.us.dasha.ai",
     apiKey: process.env.DASHA_APIKEY!
   });
   let app: dasha.IApplication;
   try {
+    await removeUpdateIntentsFile();
     app = await sdk.registerApp({
-      appPackagePath: "./app",
+      appPackagePath: appPath,
       concurrency: 10,
       progressReporter: dasha.progress.consoleReporter,
     });
@@ -65,22 +74,25 @@ async function main() {
       startingJob: async (serverId, id, incomingData) => {
         console.log(`Staring job ${id}`, { serverId, ...incomingData });
         const job = createJob(id === "testJob" && phone !== "chat" ? phone : "");
+        const rpcHandler = { updateIntents: lib.updateIntents as (args: Record<string, unknown>) => Promise<unknown> };
         
         if (id === "testJob" && phone === "chat") {
           const debugEvents = createLogger({ logFile: "log.txt" });
           runConsoleChat(await sdk.connectChat(serverId)).catch(console.error);
-          return { accept: true, ...job, debugEvents, sessionConfigName: "text" };
+          return { accept: true, ...job, debugEvents, sessionConfigName: "text", rpcHandler };
         } else {
           const debugEvents = createLogger({ log: console.log, logFile: "log.txt" });
-          return { accept: true, ...job, debugEvents, sessionConfigName: "audio" };
+          return { accept: true, ...job, debugEvents, sessionConfigName: "audio", rpcHandler };
         }
       },
       completedJob: async (id, result, records) => {
         records.map(recordToUrl).forEach(url => console.log({ recordUrl: url }));
+        updateCustomIntents(appPath);
         console.log(`Completed job ${id}`, result);
       },
       failedJob: async (id, error, records) => {
         records.map(recordToUrl).forEach(url => console.log({ recordUrl: url }));
+        updateCustomIntents(appPath);
         console.log(`Failed job ${id}`, error);
       },
       timedOutJob: async (id) => {

@@ -64,7 +64,8 @@
           "text": "Yes, I am a robot! Please do not tell anybody about this or I get fired"
         }
       ],
-      "is_that_all": [{ "text": "Is that all?" }]
+      "is_that_all": [{ "text": "Is that all?" }],
+      "repeat_question": [{ "text": "Can you repeat question, please?" }]
     },
     "types": {},
     "macros": {
@@ -87,7 +88,8 @@
       "is_that_all": {},
       "greeting": {},
       "will_help": {},
-      "how_much": {}
+      "how_much": {},
+      "repeat_question": {}
     }
   }
 }

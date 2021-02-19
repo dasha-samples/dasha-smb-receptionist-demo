@@ -1,4 +1,5 @@
 import "commonReactions/all.dsl";
+import "confirmIntent.dsl";
 
 context {
     input phone: string;
@@ -16,12 +17,15 @@ start node root
     }
 }
 
-digression schedule_haircut
+global digression schedule_haircut
 {
     conditions {on #messageHasIntent("schedule_haircut");}
     do
     {
-        #sayText("Okay. What day would you like to come in?");
+        var confirmed = blockcall confirmIntent("Uhm... You want to schedule haircut?", "schedule_haircut", 0.5);
+        if (confirmed) {
+            #sayText("Okay. What day would you like to come in?");
+        }
         wait *;
     }
 }
