@@ -6,6 +6,8 @@ context {
     desired_weekday: string = "";
 }
 
+external function updateIntents(intent: string, text: string?, confirmed: boolean): unknown;
+
 start node root
 {
     do
@@ -17,15 +19,27 @@ start node root
     }
 }
 
-global digression schedule_haircut
+digression schedule_haircut
 {
     conditions {on #messageHasIntent("schedule_haircut");}
     do
     {
-        var confirmed = blockcall confirmIntent("Uhm... You want to schedule haircut?", "schedule_haircut", 0.5);
-        if (confirmed) {
-            #sayText("Okay. What day would you like to come in?");
+        var await_confirmation = blockcall confirmIntent("Uhm... You want to schedule haircut?", "schedule_haircut", 0.5);
+        if (await_confirmation) {
+            wait *;
+        } else {
+            goto @do;
         }
+    }
+    transitions {
+        @do: goto schedule_haircut_do;
+        confirmed: goto schedule_haircut_do on digression.confirm_intent.shared.confirmed priority 50;
+    }
+}
+
+node schedule_haircut_do {
+    do {
+        #sayText("Okay. What day would you like to come in?");
         wait *;
     }
 }

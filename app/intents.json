@@ -1,7 +1,6 @@
 {
   "includes": {
     "schedule_haircut": [
-      "I need to make an appointment for a haircut",
       "I would like to schedule an appointment to get a haircut",
       "schedule haircut",
       "can I have a haircut",
@@ -17,71 +16,24 @@
     "monday": [
       "monday",
       "on monday",
-      "this monday",
-      "monday",
-      "monday",
-      "monday",
-      "monday",
-      "monday"
+      "this monday"
     ],
     "tuesday": [
-      "tuesday",
-      "tuesday",
-      "tuesday",
-      "tuesday",
-      "tuesday",
-      "tuesday",
-      "tuesday",
       "tuesday"
     ],
     "wednesday": [
-      "wednesday",
-      "wednesday",
-      "wednesday",
-      "wednesday",
-      "wednesday",
-      "wednesday",
-      "wednesday",
       "wednesday"
     ],
     "thursday": [
-      "thursday",
-      "thursday",
-      "thursday",
-      "thursday",
-      "thursday",
-      "thursday",
-      "thursday",
       "thursday"
     ],
     "friday": [
-      "friday",
-      "friday",
-      "friday",
-      "friday",
-      "friday",
-      "friday",
-      "friday",
       "friday"
     ],
     "saturday": [
-      "saturday",
-      "saturday",
-      "saturday",
-      "saturday",
-      "saturday",
-      "saturday",
-      "saturday",
       "saturday"
     ],
     "sunday": [
-      "sunday",
-      "sunday",
-      "sunday",
-      "sunday",
-      "sunday",
-      "sunday",
-      "sunday",
       "sunday"
     ]
   },
