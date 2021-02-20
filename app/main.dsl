@@ -19,7 +19,7 @@ start node root
     }
 }
 
-digression schedule_haircut
+global digression schedule_haircut
 {
     conditions {on #messageHasIntent("schedule_haircut");}
     do
@@ -44,12 +44,15 @@ node schedule_haircut_do {
     }
 }
 
-digression cancel_appt
+global digression cancel_appt
 {
     conditions {on #messageHasIntent("cancel_appt");}
     do
     {
-        #sayText("Sorry to hear that. I cancelled your appointment.");
+        var confirmed = blockcall confirmIntent("Do you want to cancel your appointment?", "cancel_appt", 1, $du_text);
+        if (confirmed) {
+            #sayText("Sorry to hear that. I cancelled your appointment.");
+        }
         wait *;
     }
 }

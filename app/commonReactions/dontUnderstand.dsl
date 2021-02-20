@@ -3,6 +3,7 @@ context
 {
     output status:string?;
     output serviceStatus:string?;
+    du_text: string?;
 }
 
 digression dont_understand_hangup_params
@@ -28,6 +29,10 @@ digression dont_understand
     var responses: Phrases[] = ["dont_understand"];
     do
     {
+        set $du_text = #getMessageText();
+        //#log("entering dont_understand digression");
+        //#log($du_text);
+
         if (digression.dont_understand.counter > digression.dont_understand.retriesLimit)
         {
             goto hangup;
@@ -38,7 +43,7 @@ digression dont_understand
         {
             #say(item, repeatMode: "ignore");
         }
-        #repeat(accuracy: "short");
+        //#repeat(accuracy: "short");
         return;
     }
     transitions
@@ -51,7 +56,7 @@ preprocessor digression dont_understand_preprocessor
 {
     conditions { on true priority 50000; }
     do
-    {
+    {        
         if (digression.dont_understand.resetOnRecognized)
         {
             set digression.dont_understand.counter = 0;
