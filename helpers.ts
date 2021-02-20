@@ -71,7 +71,7 @@ export async function runConsoleChat(chatChannel: IChatChannel) {
 export const UPDATE_INTENTS_FILE = "update_intents";
 
 export function removeUpdateIntentsFile() {
-  return fs.promises.unlink(UPDATE_INTENTS_FILE).catch(console.error);
+  if (fs.existsSync(UPDATE_INTENTS_FILE)) fs.promises.unlink(UPDATE_INTENTS_FILE).catch(console.error);
 }
 
 interface ICustomIntents {
