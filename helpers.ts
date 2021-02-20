@@ -101,7 +101,6 @@ async function applyUpdateCustomIntents(intents: ICustomIntents): Promise<ICusto
     const type: keyof typeof intents | undefined = parsedLine[1] as keyof typeof intents;
     const intent: string | undefined = parsedLine[2];
     const phrase: string | undefined = parsedLine[3];
-    console.log(parsedLine, intent, type, phrase);
     if (intent === undefined || type === undefined || phrase === undefined) {
       console.error("Cannot parse line", line);
       continue;
