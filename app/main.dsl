@@ -49,10 +49,22 @@ digression cancel_appt
     conditions {on #messageHasIntent("cancel_appt");}
     do
     {
-        var confirmed = blockcall confirmIntent("Do you want to cancel your appointment?", "cancel_appt", 1, $du_text);
-        if (confirmed) {
-            #sayText("Sorry to hear that. I cancelled your appointment.");
+        var await_confirmation = blockcall confirmIntent("Do you want to cancel your appointment?", "cancel_appt", 1, $du_text);
+        if (await_confirmation) {
+            wait *;
+        } else {
+            goto @do;
         }
+    }
+    transitions {
+        @do: goto cancel_appt_do;
+        confirmed: goto cancel_appt_do on digression.confirm_intent.shared.confirmed priority 50;
+    }
+}
+
+node cancel_appt_do {
+    do {
+        #sayText("Sorry to hear that. I cancelled your appointment.");
         wait *;
     }
 }
