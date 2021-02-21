@@ -15,6 +15,12 @@
       "unfortunately i have to cancel",
       "can I cancel"
     ],
+    "bye": [
+      "bye",
+      "ok bye",
+      "good bye",
+      "thanks bye"
+    ],
     "monday": [
       "monday",
       "on monday",
