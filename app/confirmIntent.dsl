@@ -17,11 +17,14 @@ digression repeat_question {
     }
 }
 
-block confirmIntent(question: string, intent: string, probability: number): boolean {
+block confirmIntent(question: string, intent: string, probability: number, du_text: string?): boolean {
     import "confirmIntentPreprocessor.dsl";
     
     start node confirm {
         do {
+            if($du_text is not null && $du_text != "") {
+                external updateIntents($intent, $du_text, true);
+            }
             if (#random() < $probability) {
                 set digression.confirm_intent.shared.enabled = true;
                 set digression.confirm_intent.shared.confirmed = true;

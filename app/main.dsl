@@ -19,12 +19,12 @@ start node root
     }
 }
 
-global digression schedule_haircut
+digression schedule_haircut
 {
     conditions {on #messageHasIntent("schedule_haircut");}
     do
     {
-        var await_confirmation = blockcall confirmIntent("Uhm... You want to schedule haircut?", "schedule_haircut", 0.5);
+        var await_confirmation = blockcall confirmIntent("Uhm... You want to schedule haircut?", "schedule_haircut", 0.5, $du_text);
         if (await_confirmation) {
             wait *;
         } else {
@@ -44,7 +44,7 @@ node schedule_haircut_do {
     }
 }
 
-global digression cancel_appt
+digression cancel_appt
 {
     conditions {on #messageHasIntent("cancel_appt");}
     do

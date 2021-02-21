@@ -10,6 +10,7 @@ preprocessor digression confirm_intent {
     shared var intent: string = "";
 
     do {
+        set $du_text = null;
         set digression.confirm_intent.shared.enabled = false;
         set digression.confirm_intent.shared.confirmed = #messageHasSentiment("positive");
         external updateIntents(digression.confirm_intent.shared.intent, digression.confirm_intent.shared.phrase, digression.confirm_intent.shared.confirmed);
