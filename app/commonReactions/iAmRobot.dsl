@@ -11,7 +11,7 @@ digression i_am_robot
         {
             #say(item, repeatMode: "ignore");
         }
-        #repeat(accuracy: "short");
+        //#repeat(accuracy: "short");
         return;
     }
     transitions

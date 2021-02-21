@@ -20,7 +20,7 @@ digression swear_words
         set $serviceStatus=digression.swear_words.serviceStatus;
         set $callBackDetails = #message.originalText;
 
-        #forward("79930116703");    //use if you want to transfer a call
+        //#forward("12223334455");    //use if you want to transfer a call
         #disconnect();
         exit;
     }
