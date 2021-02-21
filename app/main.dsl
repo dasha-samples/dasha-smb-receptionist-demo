@@ -6,6 +6,8 @@ context {
     desired_weekday: string = "";
 }
 
+external function updateIntents(intent: string, text: string?, confirmed: boolean): unknown;
+
 start node root
 {
     do
@@ -17,28 +19,52 @@ start node root
     }
 }
 
-global digression schedule_haircut
+digression schedule_haircut
 {
     conditions {on #messageHasIntent("schedule_haircut");}
     do
     {
-        var confirmed = blockcall confirmIntent("Do you want to schedule a haircut?", "schedule_haircut", 1, $du_text);
-        if (confirmed) {
-            #sayText("Okay. What day would you like to come in?");
+        var await_confirmation = blockcall confirmIntent("Umm...Do you want to schedule a haircut?", "schedule_haircut", 0.5, $du_text);
+        if (await_confirmation) {
+            wait *;
+        } else {
+            goto @do;
         }
+    }
+    transitions {
+        @do: goto schedule_haircut_do;
+        confirmed: goto schedule_haircut_do on digression.confirm_intent.shared.confirmed priority 50;
+    }
+}
+
+node schedule_haircut_do {
+    do {
+        #sayText("Okay. What day would you like to come in?");
         wait *;
     }
 }
 
-global digression cancel_appt
+digression cancel_appt
 {
     conditions {on #messageHasIntent("cancel_appt");}
     do
     {
-        var confirmed = blockcall confirmIntent("Do you want to cancel your appointment?", "cancel_appt", 1, $du_text);
-        if (confirmed) {
-            #sayText("Sorry to hear that. I cancelled your appointment.");
+        var await_confirmation = blockcall confirmIntent("Do you want to cancel your appointment?", "cancel_appt", 1, $du_text);
+        if (await_confirmation) {
+            wait *;
+        } else {
+            goto @do;
         }
+    }
+    transitions {
+        @do: goto cancel_appt_do;
+        confirmed: goto cancel_appt_do on digression.confirm_intent.shared.confirmed priority 50;
+    }
+}
+
+node cancel_appt_do {
+    do {
+        #sayText("Sorry to hear that. I cancelled your appointment.");
         wait *;
     }
 }
@@ -60,5 +86,14 @@ digression weekday
         #log($desired_weekday);
         #sayText("Yes, we have a slot. You're all set.");
         wait *;
+    }
+}
+
+digression bye
+{
+    conditions { on #messageHasIntent("bye"); }
+    do
+    {
+        #sayText("Have a nice day. Bye!");
     }
 }
