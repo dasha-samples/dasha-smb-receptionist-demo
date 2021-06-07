@@ -6,6 +6,7 @@
       "speed": 0.3,
       "variation": 4
     },
+
     "phrases": {
       "i_will_call_back": [{ "text": "Okay, I'll call you later. Bye!" }],
       "hello": {
@@ -27,6 +28,13 @@
           [{ "text": "Okay, no problem!" }]
         ]
       },
+
+      "see_you_soon": [
+        { "text": "Perfect. We'll see you on " },
+        { "id": "desired_weekday", "type": "dynamic" },
+        { "text": ". Take care!" }
+      ],
+
       "i_can_hear_you": [{ "text": "Yes, I hear you" }],
       "dont_understand": {
         "random": [
@@ -57,11 +65,12 @@
         }
       ],
       "is_that_all": [{ "text": "Is that all?" }],
-      "repeat_question": [{ "text": "Can you repeat question, please?" }]
+      "repeat_question": [{ "text": "Can you repeat the question, please?" }]
     },
     "types": {},
     "macros": {
       "i_will_call_back": {},
+      "see_you_soon": {},
       "hello": {},
       "when_callback": {},
       "i_said": {},

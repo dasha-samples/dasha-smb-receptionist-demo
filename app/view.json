@@ -26,19 +26,19 @@
   "node::root": {
     "common.position": {
       "x": 0,
-      "y": 2957
+      "y": 860
     }
   },
   "node::schedule_haircut": {
     "common.position": {
-      "x": 0,
-      "y": 23
+      "x": 600,
+      "y": 63
     }
   },
   "node::cancel_appt": {
     "common.position": {
       "x": 0,
-      "y": 169
+      "y": 528
     }
   },
   "node::answering_machine": {
@@ -159,6 +159,96 @@
     "common.position": {
       "x": 600,
       "y": 2114
+    }
+  },
+  "node::cancel_appt_do": {
+    "common.position": {
+      "x": 600,
+      "y": 581
+    }
+  },
+  "node::schedule_haircut_do": {
+    "common.position": {
+      "x": 0,
+      "y": -300.91680261252463
+    }
+  },
+  "node:confirmIntent:confirm": {
+    "common.position": {
+      "x": 0,
+      "y": -240.4250214556137
+    }
+  },
+  "node::confirm_intent": {
+    "common.position": {
+      "x": 0,
+      "y": -197.65710898514396
+    }
+  },
+  "node::repeat_question": {
+    "common.position": {
+      "x": 0,
+      "y": -157.20097556713202
+    }
+  },
+  "node::bye": {
+    "common.position": {
+      "x": 0,
+      "y": 714
+    }
+  },
+  "node::weekday": {
+    "common.position": {
+      "x": -365.58077266352177,
+      "y": -239.30618075505814
+    }
+  },
+  "node:confirmIntent:confirm_intent": {
+    "common.position": {
+      "x": -1.155889526228912,
+      "y": -27.74134862949389
+    }
+  },
+  "node::bye_bye": {
+    "common.position": {
+      "x": 1200,
+      "y": 591
+    }
+  },
+  "node::confirm": {
+    "common.position": {
+      "x": -360.4317476964299,
+      "y": 20.596099868367425
+    }
+  },
+  "node::can_help": {
+    "common.position": {
+      "x": 600,
+      "y": 249
+    }
+  },
+  "node::this_is_barbershop": {
+    "common.position": {
+      "x": 1200,
+      "y": 737
+    }
+  },
+  "node::schedule_weekday": {
+    "common.position": {
+      "x": 0,
+      "y": 259
+    }
+  },
+  "node::schedule_haircut_day": {
+    "common.position": {
+      "x": 1200,
+      "y": 73
+    }
+  },
+  "node::confirm_appointment": {
+    "common.position": {
+      "x": 600,
+      "y": 395
     }
   }
 }

@@ -7,23 +7,33 @@
       "can I have a haircut",
       "i need haircut",
       "schedule an appointment",
-      "and here is her like really long can I walk in like the next day",
-      "i want to schedule an appt"
+      "My hair is like really long can I walk in like the next day",
+      "i want to schedule an appt",
+      "I'd like to book an appointment please",
+      "haircut",
+      "I want to get a haircut",
+      "can I get a haircut",
+      "I'd like to get a haircut please",
+      "i want a haircut "
     ],
     "cancel_appt": [
       "i need to cancel my appointment",
       "unfortunately i have to cancel",
-      "can I cancel"
+      "can I cancel",
+      "I want to cancel my appointment",
+      "cancel my appointment ",
+      "cancel"
     ],
     "bye": [
       "bye",
-      "ok bye",
       "good bye",
-      "thanks bye"
+      "thanks bye",
+      "nevermind",
+      "forget about it"      
     ],
     "monday": [
       "monday",
-      "on monday",
+      "On monday",
       "this monday",
       "next monday",
       "oh monday",
@@ -94,8 +104,10 @@
   },
   "excludes": {
     "cancel_appt": [
-      "yeah",
-      "and here is her like really long can I walk in like the next day"
+      "and here is her like really long can I walk in like the next day",
+      "I want to cancel",
+      "I'd like to cancel my appointment",
+      "can you cancel "
     ]
   }
 }
